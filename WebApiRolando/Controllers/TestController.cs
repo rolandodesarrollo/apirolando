@@ -31,5 +31,18 @@ namespace WebApiRolando.Controllers
             result.Add(new DataTestVM() { Text = "Seis", Value = 6 });
             return result;
         }
+
+
+        [System.Web.Http.HttpGet]
+        [System.Web.Http.Route("api/GetAllData3")]
+        public List<DataTestVM> GetAllData3()
+        {
+            var result = new List<DataTestVM>();
+            result.Add(new DataTestVM() { Text = "Siete", Value = 7 });
+            result.Add(new DataTestVM() { Text = "Ocho", Value = 8 });
+            result.Add(new DataTestVM() { Text = "Nueve", Value = 9 });
+            return result;
+        }
+
     }
 }
