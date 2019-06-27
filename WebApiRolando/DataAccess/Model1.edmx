@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AxosnetTestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ExpenseInvoices">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Concept" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ExchangeRate" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CurrencyCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Total" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Pending" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="AdditionalNotes" Type="nvarchar(max)" />
+          <Property Name="ProviderId" Type="bigint" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ExpensePayments">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ExchangeRate" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CurrencyCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="Comment" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ExpenseInvoiceID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Providers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProviderName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK_ExpPayments">
+          <End Role="ExpenseInvoices" Type="Self.ExpenseInvoices" Multiplicity="1" />
+          <End Role="ExpensePayments" Type="Self.ExpensePayments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExpenseInvoices">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ExpensePayments">
+              <PropertyRef Name="ExpenseInvoiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExpProviders">
+          <End Role="Providers" Type="Self.Providers" Multiplicity="1" />
+          <End Role="ExpenseInvoices" Type="Self.ExpenseInvoices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Providers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ExpenseInvoices">
+              <PropertyRef Name="ProviderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AxosnetTestModelStoreContainer">
+          <EntitySet Name="ExpenseInvoices" EntityType="Self.ExpenseInvoices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExpensePayments" EntityType="Self.ExpensePayments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Providers" EntityType="Self.Providers" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ExpPayments" Association="Self.FK_ExpPayments">
+            <End Role="ExpenseInvoices" EntitySet="ExpenseInvoices" />
+            <End Role="ExpensePayments" EntitySet="ExpensePayments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExpProviders" Association="Self.FK_ExpProviders">
+            <End Role="Providers" EntitySet="Providers" />
+            <End Role="ExpenseInvoices" EntitySet="ExpenseInvoices" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AxosnetTestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ExpenseInvoices">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Concept" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ExchangeRate" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CurrencyCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Total" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Pending" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="AdditionalNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderId" Type="Int64" Nullable="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ExpensePayments" Relationship="Self.FK_ExpPayments" FromRole="ExpenseInvoices" ToRole="ExpensePayments" />
+          <NavigationProperty Name="Providers" Relationship="Self.FK_ExpProviders" FromRole="ExpenseInvoices" ToRole="Providers" />
+        </EntityType>
+        <EntityType Name="ExpensePayments">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ExchangeRate" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CurrencyCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ExpenseInvoiceID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="ExpenseInvoices" Relationship="Self.FK_ExpPayments" FromRole="ExpensePayments" ToRole="ExpenseInvoices" />
+        </EntityType>
+        <EntityType Name="Providers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProviderName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ExpenseInvoices" Relationship="Self.FK_ExpProviders" FromRole="Providers" ToRole="ExpenseInvoices" />
+        </EntityType>
+        <Association Name="FK_ExpPayments">
+          <End Role="ExpenseInvoices" Type="Self.ExpenseInvoices" Multiplicity="1" />
+          <End Role="ExpensePayments" Type="Self.ExpensePayments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExpenseInvoices">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ExpensePayments">
+              <PropertyRef Name="ExpenseInvoiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExpProviders">
+          <End Role="Providers" Type="Self.Providers" Multiplicity="1" />
+          <End Role="ExpenseInvoices" Type="Self.ExpenseInvoices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Providers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ExpenseInvoices">
+              <PropertyRef Name="ProviderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AxosnetTestEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ExpenseInvoices" EntityType="Self.ExpenseInvoices" />
+          <EntitySet Name="ExpensePayments" EntityType="Self.ExpensePayments" />
+          <EntitySet Name="Providers" EntityType="Self.Providers" />
+          <AssociationSet Name="FK_ExpPayments" Association="Self.FK_ExpPayments">
+            <End Role="ExpenseInvoices" EntitySet="ExpenseInvoices" />
+            <End Role="ExpensePayments" EntitySet="ExpensePayments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExpProviders" Association="Self.FK_ExpProviders">
+            <End Role="Providers" EntitySet="Providers" />
+            <End Role="ExpenseInvoices" EntitySet="ExpenseInvoices" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AxosnetTestModelStoreContainer" CdmEntityContainer="AxosnetTestEntities">
+          <EntitySetMapping Name="ExpenseInvoices">
+            <EntityTypeMapping TypeName="AxosnetTestModel.ExpenseInvoices">
+              <MappingFragment StoreEntitySet="ExpenseInvoices">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Concept" ColumnName="Concept" />
+                <ScalarProperty Name="ExchangeRate" ColumnName="ExchangeRate" />
+                <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Pending" ColumnName="Pending" />
+                <ScalarProperty Name="AdditionalNotes" ColumnName="AdditionalNotes" />
+                <ScalarProperty Name="ProviderId" ColumnName="ProviderId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExpensePayments">
+            <EntityTypeMapping TypeName="AxosnetTestModel.ExpensePayments">
+              <MappingFragment StoreEntitySet="ExpensePayments">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="ExchangeRate" ColumnName="ExchangeRate" />
+                <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="ExpenseInvoiceID" ColumnName="ExpenseInvoiceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Providers">
+            <EntityTypeMapping TypeName="AxosnetTestModel.Providers">
+              <MappingFragment StoreEntitySet="Providers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ProviderName" ColumnName="ProviderName" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
