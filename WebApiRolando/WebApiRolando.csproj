@@ -236,6 +236,7 @@
     </Compile>
     <Compile Include="Models\DataTestVM.cs" />
     <Compile Include="Models\ExpenseInvoices\ExpenseInvoiceDTO.cs" />
+    <Compile Include="Models\Providers\NewProviderDTO.cs" />
     <Compile Include="Models\Providers\ProvidersDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

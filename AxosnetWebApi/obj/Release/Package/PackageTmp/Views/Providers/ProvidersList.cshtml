@@ -7,5 +7,25 @@
 <div ng-controller="providersListCtrl">
 
     <h3>{{message}}</h3>
+    <h4>{{providers.length}} registrados</h4>
+    <table class="table nav-stacked">
+        <thead>
+            <tr>
+                <td># Proveedor</td>
+                <td>Nombre Proveedor</td>
+                <td>Teléfono</td>
+            </tr>
+
+        </thead>
+        <tbody>
+            <tr ng-repeat="p in providers track by $index">
+
+                <td>{{p.Id}}</td>
+                <td>{{p.ProviderName}}</td>
+                <td>{{p.Telephone}}</td>
+            </tr>
+        </tbody>
+
+    </table>
 
 </div>

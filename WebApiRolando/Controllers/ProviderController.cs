@@ -17,5 +17,21 @@ namespace WebApiRolando.Controllers
             var providers = new ProviderSC().GetAllProvidersList();
             return providers;
         }
+
+        [System.Web.Http.Route("api/Providersv2")]
+        public List<ProvidersDTO> GetAllProviders2()
+        {
+            List<ProvidersDTO> providers = new List<ProvidersDTO>();
+            return providers;
+        }
+
+
+        //http://localhost:56631/api/AddNewProvider?ProviderName=Bind&Telephone=392093023
+        [System.Web.Http.HttpGet]
+        [System.Web.Http.Route("api/AddNewProvider")]
+        public long AddProvider(string ProviderName, string Telephone)
+        {
+            return new ProviderSC().AddNewProvider(ProviderName, Telephone);
+        }
     }
 }
