@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="apirolando" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\ROLANDO\\Desktop\\Axosnet\ Test\\apirolando\\WebApiRolando\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\ROLANDO\\Desktop\\Axosnet\ Test\\apirolando\\WebApiRolando\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="AxosnetTestEntities-Web.config Connection String" description="" value="metadata=res://*/DataAccess.Model1.csdl|res://*/DataAccess.Model1.ssdl|res://*/DataAccess.Model1.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=axosnet.database.windows.net;initial catalog=AxosnetTest;persist security info=True;user id=axosnet;password=r0lando#556;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\ROLANDO\\Desktop\\Axosnet\ Test\\apirolando\\WebApiRolando\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='AxosnetTestEntities']/@connectionString" />
+  </parameter>
+</parameters>

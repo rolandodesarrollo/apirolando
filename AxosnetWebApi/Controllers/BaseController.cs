@@ -22,6 +22,16 @@ namespace AxosnetWebApi.Controllers
 
         }
 
+        public RestRequest PostAPIResponse(RestClient client)
+        {
+
+            var request = new RestRequest(Method.POST);
+            //request.AddHeader("authorization", BindApiKey);
+            request.AddHeader("content-type", "application/json");
+            return request;
+
+        }
+
 
         public T DeserializeJson<T>(T dataType, string content) where T: class
         {
