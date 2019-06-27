@@ -80,3 +80,7 @@ C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\Microsoft.Owi
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\obj\Debug\AxosnetWebApi.csprojResolveAssemblyReference.cache
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\obj\Debug\AxosnetWebApi.dll
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\obj\Debug\AxosnetWebApi.pdb
+C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\TypeLite.dll
+C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\TypeLite.Net4.dll
+C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\TypeLite.pdb
+C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\TypeLite.Net4.pdb
