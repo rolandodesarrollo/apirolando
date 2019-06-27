@@ -116,3 +116,7 @@ C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\WebApiRolando\bin\System.Web.Ht
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\WebApiRolando\obj\Debug\WebApiRolando.csprojResolveAssemblyReference.cache
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\WebApiRolando\obj\Debug\WebApiRolando.dll
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\WebApiRolando\obj\Debug\WebApiRolando.pdb
+C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\WebApiRolando\bin\EntityFramework.dll
+C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\WebApiRolando\bin\EntityFramework.SqlServer.dll
+C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\WebApiRolando\bin\EntityFramework.xml
+C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\WebApiRolando\bin\EntityFramework.SqlServer.xml

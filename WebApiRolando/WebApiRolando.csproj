@@ -201,6 +201,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Backend\BaseSC.cs" />
     <Compile Include="Backend\ProviderSC.cs" />
     <Compile Include="Controllers\ProviderController.cs" />
     <Compile Include="Controllers\TestController.cs" />
@@ -232,7 +233,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\DataTestVM.cs" />
-    <Compile Include="Models\Providers\ProvidersSC.cs" />
+    <Compile Include="Models\ExpenseInvoices\ExpenseInvoiceDTO.cs" />
+    <Compile Include="Models\Providers\ProvidersDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
