@@ -11,5 +11,6 @@ namespace AxosnetWebApi.Models
     {
         public long Id { get; set; }
         public string ProviderName { get; set; }
+        public string Telephone { get; set; }
     }
 }

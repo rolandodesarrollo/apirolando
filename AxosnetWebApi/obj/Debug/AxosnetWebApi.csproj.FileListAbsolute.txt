@@ -84,3 +84,5 @@ C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\TypeLite.dll
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\TypeLite.Net4.dll
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\TypeLite.pdb
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\TypeLite.Net4.pdb
+C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\RestSharp.dll
+C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\RestSharp.xml
