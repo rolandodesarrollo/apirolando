@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AxosnetTestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ExpenseInvoices">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Concept" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ExchangeRate" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="CurrencyCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Total" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Pending" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="AdditionalNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProviderId" Type="Int64" Nullable="false" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ExpensePayments" Relationship="Self.FK_ExpPayments" FromRole="ExpenseInvoices" ToRole="ExpensePayments" />
+    <NavigationProperty Name="Providers" Relationship="Self.FK_ExpProviders" FromRole="ExpenseInvoices" ToRole="Providers" />
+  </EntityType>
+  <EntityType Name="ExpensePayments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="ExchangeRate" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="CurrencyCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ExpenseInvoiceID" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="ExpenseInvoices" Relationship="Self.FK_ExpPayments" FromRole="ExpensePayments" ToRole="ExpenseInvoices" />
+  </EntityType>
+  <EntityType Name="Providers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProviderName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ExpenseInvoices" Relationship="Self.FK_ExpProviders" FromRole="Providers" ToRole="ExpenseInvoices" />
+  </EntityType>
+  <Association Name="FK_ExpPayments">
+    <End Role="ExpenseInvoices" Type="Self.ExpenseInvoices" Multiplicity="1" />
+    <End Role="ExpensePayments" Type="Self.ExpensePayments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExpenseInvoices">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ExpensePayments">
+        <PropertyRef Name="ExpenseInvoiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExpProviders">
+    <End Role="Providers" Type="Self.Providers" Multiplicity="1" />
+    <End Role="ExpenseInvoices" Type="Self.ExpenseInvoices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Providers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ExpenseInvoices">
+        <PropertyRef Name="ProviderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AxosnetTestEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ExpenseInvoices" EntityType="Self.ExpenseInvoices" />
+    <EntitySet Name="ExpensePayments" EntityType="Self.ExpensePayments" />
+    <EntitySet Name="Providers" EntityType="Self.Providers" />
+    <AssociationSet Name="FK_ExpPayments" Association="Self.FK_ExpPayments">
+      <End Role="ExpenseInvoices" EntitySet="ExpenseInvoices" />
+      <End Role="ExpensePayments" EntitySet="ExpensePayments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExpProviders" Association="Self.FK_ExpProviders">
+      <End Role="Providers" EntitySet="Providers" />
+      <End Role="ExpenseInvoices" EntitySet="ExpenseInvoices" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

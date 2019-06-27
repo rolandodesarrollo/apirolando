@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="AxosnetTestEntities-Web.config Connection String" description="AxosnetTestEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/DataAccess.Model1.csdl|res://*/DataAccess.Model1.ssdl|res://*/DataAccess.Model1.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=axosnet.database.windows.net;initial catalog=AxosnetTest;persist security info=True;user id=axosnet;password=r0lando#556;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\ROLANDO\\Desktop\\Axosnet\ Test\\apirolando\\WebApiRolando\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='AxosnetTestEntities']/@connectionString" />
+  </parameter>
+</parameters>

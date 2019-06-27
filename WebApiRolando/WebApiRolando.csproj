@@ -185,6 +185,8 @@
     <Content Include="DataAccess\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\apirolando - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\apirolando - Web Deploy.pubxml" />
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="scripts\jquery-1.10.2.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />

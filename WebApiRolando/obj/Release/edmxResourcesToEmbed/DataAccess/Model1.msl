@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AxosnetTestModelStoreContainer" CdmEntityContainer="AxosnetTestEntities">
+    <EntitySetMapping Name="ExpenseInvoices">
+      <EntityTypeMapping TypeName="AxosnetTestModel.ExpenseInvoices">
+        <MappingFragment StoreEntitySet="ExpenseInvoices">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Concept" ColumnName="Concept" />
+          <ScalarProperty Name="ExchangeRate" ColumnName="ExchangeRate" />
+          <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Pending" ColumnName="Pending" />
+          <ScalarProperty Name="AdditionalNotes" ColumnName="AdditionalNotes" />
+          <ScalarProperty Name="ProviderId" ColumnName="ProviderId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExpensePayments">
+      <EntityTypeMapping TypeName="AxosnetTestModel.ExpensePayments">
+        <MappingFragment StoreEntitySet="ExpensePayments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="ExchangeRate" ColumnName="ExchangeRate" />
+          <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="ExpenseInvoiceID" ColumnName="ExpenseInvoiceID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Providers">
+      <EntityTypeMapping TypeName="AxosnetTestModel.Providers">
+        <MappingFragment StoreEntitySet="Providers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProviderName" ColumnName="ProviderName" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
