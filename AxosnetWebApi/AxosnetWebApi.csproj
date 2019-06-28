@@ -336,6 +336,7 @@
     <None Include="Properties\PublishProfiles\axopayments - Web Deploy.pubxml" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Controllers\ExpensesCtrl.js" />
     <Content Include="Scripts\Controllers\ProvidersCtrl.js" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Scripts\angular.min.js.map" />
@@ -1132,12 +1133,12 @@
     <Content Include="Scripts\version.json" />
     <Content Include="Scripts\Manager.ttinclude" />
     <Content Include="Views\Providers\ProvidersList.cshtml" />
+    <Content Include="Views\ExpenseInvoices\ExpenseList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\ExpenseInvoices\" />
     <Folder Include="Views\Base\" />
-    <Folder Include="Views\ExpenseInvoices\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -1149,6 +1150,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Scripts\Controllers\ExpensesCtrl.ts" />
     <TypeScriptCompile Include="Scripts\Enums.ts">
       <DependentUpon>TypeLite.Net4.tt</DependentUpon>
     </TypeScriptCompile>
