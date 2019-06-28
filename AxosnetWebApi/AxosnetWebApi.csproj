@@ -260,6 +260,7 @@
     <Compile Include="Models\TextValue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceComponents\BaseSC.cs" />
+    <Compile Include="ServiceComponents\ExpenseInvoicesSC.cs" />
     <Compile Include="ServiceComponents\ProvidersSC.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

@@ -19,5 +19,12 @@ namespace AxosnetWebApi.Controllers
             ViewBag.backendData = SerializeJSONData(backendData);
             return View();
         }
+
+        [HttpPost]
+        public ActionResult AddNewExpenseInvoice(string concept, long providerID, decimal amount, string currencyCode)
+        {
+            var result = new ExpenseInvoicesSC().AddNewExpenseInvoice(concept, providerID, amount, currencyCode);
+            return GetJsonNetResult(result);
+        }
     }
 }
