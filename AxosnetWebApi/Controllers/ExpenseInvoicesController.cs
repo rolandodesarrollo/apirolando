@@ -20,9 +20,9 @@ namespace AxosnetWebApi.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddNewExpenseInvoice(string concept, long providerID, decimal amount, string currencyCode)
+        public ActionResult AddNewExpenseInvoice(string concept, long providerID, decimal amount, string currencyCode, decimal exchangeRate)
         {
-            var result = new ExpenseInvoicesSC().AddNewExpenseInvoice(concept, providerID, amount, currencyCode);
+            var result = new ExpenseInvoicesSC().AddNewExpenseInvoice(concept, providerID, amount, currencyCode, exchangeRate);
             return GetJsonNetResult(result);
         }
     }

@@ -19,7 +19,8 @@ namespace AxosnetWebApi.ServiceComponents
 
         public string AddNewProvider(string ProviderName, string Telephone)
         {
-            var url = "http://apirolando.azurewebsites.net/api/AddNewProvider?ProviderName=" + ProviderName + "&Telephone=" + Telephone;
+            
+           var url = "http://apirolando.azurewebsites.net/api/AddNewProvider?ProviderName=" + ProviderName + "&Telephone=" + Telephone;
             IRestResponse response = PostAPIResponse(url);
             try
             {

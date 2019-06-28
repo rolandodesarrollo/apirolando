@@ -57,7 +57,17 @@
                                         <br />
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control input-sm" ng-model="newExpenseCurrencyCode" placeholder="Moneda">
+                                        <select class="input-sm"" ng-model="selectedCurrency"
+                                                ng-options="sc for sc in backendData.Currencies" style="width: 96px;"></select>
+                                        <br />
+                                    </div>
+                                </div>
+                                <br />
+                                <div  ng-show="selectedCurrency != 'MXN'" class="row">
+                                    
+                                    <div class="col-sm-6">
+                                        Tipo de cambio
+                                        <input type="text" class="form-control input-sm" ng-model="newExpenseExchangeRate" placeholder="Tipo de Cambio(TC)">
                                         <br />
                                     </div>
                                 </div>
