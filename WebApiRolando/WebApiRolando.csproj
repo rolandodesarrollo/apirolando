@@ -204,7 +204,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Backend\BaseSC.cs" />
+    <Compile Include="Backend\ExpenseInvoiceSC.cs" />
     <Compile Include="Backend\ProviderSC.cs" />
+    <Compile Include="Controllers\ExpenseInvoiceController.cs" />
     <Compile Include="Controllers\ProviderController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="DataAccess\ExpenseInvoices.cs">
@@ -262,6 +264,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\ExpenseInvoice\" />
     <Folder Include="Views\Provider\" />
     <Folder Include="Views\Test\" />
   </ItemGroup>
