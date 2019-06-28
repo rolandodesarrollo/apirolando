@@ -49,6 +49,7 @@ namespace AxosnetWebApi.Controllers
 
         }
 
+
         public object SerializeJSONData(object data)
         {
             var result = JsonConvert.SerializeObject(data, Newtonsoft.Json.Formatting.None,

@@ -7,13 +7,10 @@ using WebApiRolando.Backend;
 
 namespace WebApiRolando.Controllers
 {
-    public class ExpenseInvoiceController : Controller
+    public class ExpenseInvoiceController 
     {
         // GET: ExpenseInvoice
-        public ActionResult ExpenseList()
-        {
-            return View();
-        }
+       
 
         [System.Web.Http.HttpPost]
         [System.Web.Http.Route("api/AddNewExpenseInvoice")]
