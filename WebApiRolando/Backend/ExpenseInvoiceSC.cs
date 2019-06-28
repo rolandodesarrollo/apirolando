@@ -20,8 +20,9 @@ namespace WebApiRolando.Backend
             newExpenseInvoice.Status = 1;// Active
             newExpenseInvoice.Total = total;
             newExpenseInvoice.Pending = total;
-
+            
             DataContext.ExpenseInvoices.Add(newExpenseInvoice);
+            DataContext.SaveChanges();
             DataContext.Entry(newExpenseInvoice).GetDatabaseValues();
             return newExpenseInvoice.Id;
             

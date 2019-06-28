@@ -14,22 +14,17 @@ namespace AxosnetWebApi.ServiceComponents
 
         public long AddNewExpenseInvoice(string concept, long providerID, decimal amount, string currencyCode, decimal exchangeRate)
         {
-            //var url = "http://apirolando.azurewebsites.net/api/AddNewProvider?ProviderName=" + ProviderName + "&Telephone=" + Telephone;
-            //IRestResponse response = PostAPIResponse(url);
-            //try
-            //{
-            //    JavaScriptSerializer jsSerializer = new JavaScriptSerializer();
-            //    var r = jsSerializer.Deserialize<RequestMessage>(response.Content);
+            var url = "http://apirolando.azurewebsites.net/api/AddNewExpenseInvoice?concept=" + concept + "&providerId=" + providerID
+                + "&exchangeRate=" + exchangeRate +"&total=" + amount + "&currencyCode=" + currencyCode + "&additionalNotes=";
+            IRestResponse response = GetApiResponse(url);
+            try
+            {
+                return long.Parse(response.Content);
+            }
+            catch (Exception)
+            {
 
-            //    if (r.code != "200")
-            //    {
-            //        return r.message;
-            //    }
-            //}
-            //catch (Exception)
-            //{
-
-            //}
+            }
 
             return 0;
         }

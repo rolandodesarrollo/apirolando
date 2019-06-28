@@ -29,7 +29,11 @@ angularApp.controller('expensesListCtrl', function ($scope, $http) {
             }
         })
             .success(function (data, status, headers, config) {
-            $('#providerPanel').modal("hide");
+            $('#expensePanel').modal("hide");
+            $scope.newExpenseConcept = undefined;
+            $scope.newExpenseCurrencyCode = 'MXN';
+            $scope.newExpenseTotal = undefined;
+            $scope.selectedProvider = $scope.backendData.Providers[0];
             // $scope.search();
         });
     };
