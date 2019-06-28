@@ -10,14 +10,14 @@ interface ExpenseListScope extends ng.IScope {
     newExpenseTotal: number;
     newExpenseCurrencyCode: string;
     openAddExpensePopUp();
-    backendData: AxosnetWebApi.Models.TextValue[];
+    backendData: AxosnetWebApi.Models.ExpenseInvoices.ExpenseBackendDataVM;
     selectedProvider: AxosnetWebApi.Models.TextValue;
 }
 
 angularApp.controller('expensesListCtrl', function ($scope: ExpenseListScope, $http: ng.IHttpService) {
     $scope.message = "Lista de gastos registrados";
 
-    $scope.selectedProvider = $scope.backendData[0];
+    $scope.selectedProvider = $scope.backendData.Providers[0];
 
     $scope.openAddExpensePopUp = function () {
         $('#expensePanel').modal("show");

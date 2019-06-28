@@ -13,10 +13,9 @@ namespace AxosnetWebApi.Controllers
         // GET: ExpenseInvoices
         public ActionResult ExpenseList()
         {
-            var backendData = new ProvidersSC().GetAllProviders()
-                .Select(s =>  new TextValue { Text = s.ProviderName, Value = s.Id }).ToList();
-
+            var backendData = new ExpenseInvoicesSC().GetExpenseListBackendData();
             ViewBag.backendData = SerializeJSONData(backendData);
+            
             return View();
         }
 

@@ -1,7 +1,7 @@
 var angularApp = angular.module('axosnetApp', []);
 angularApp.controller('expensesListCtrl', function ($scope, $http) {
     $scope.message = "Lista de gastos registrados";
-    $scope.selectedProvider = $scope.backendData[0];
+    $scope.selectedProvider = $scope.backendData.Providers[0];
     $scope.openAddExpensePopUp = function () {
         $('#expensePanel').modal("show");
     };
