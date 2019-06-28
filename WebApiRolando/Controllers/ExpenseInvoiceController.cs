@@ -20,7 +20,7 @@ namespace WebApiRolando.Controllers
             return expenses;
         }
 
-        [System.Web.Http.HttpGet]
+        [System.Web.Http.HttpPost]
         [System.Web.Http.Route("api/AddNewExpenseInvoice")]
         public long AddExpense(string concept, long providerId, decimal exchangeRate, decimal total, string currencyCode, string additionalNotes)
         {

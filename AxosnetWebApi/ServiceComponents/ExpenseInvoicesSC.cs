@@ -16,7 +16,7 @@ namespace AxosnetWebApi.ServiceComponents
         {
             var url = "http://apirolando.azurewebsites.net/api/AddNewExpenseInvoice?concept=" + concept + "&providerId=" + providerID
                 + "&exchangeRate=" + exchangeRate +"&total=" + amount + "&currencyCode=" + currencyCode + "&additionalNotes=";
-            IRestResponse response = GetApiResponse(url);
+            IRestResponse response = PostAPIResponse(url);
             try
             {
                 return long.Parse(response.Content);

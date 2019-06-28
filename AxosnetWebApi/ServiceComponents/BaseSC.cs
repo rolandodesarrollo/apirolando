@@ -23,7 +23,7 @@ namespace AxosnetWebApi.ServiceComponents
         {
             JavaScriptSerializer jsSerializer = new JavaScriptSerializer();
             var client = new RestClient(url);
-            var request = new RestRequest(Method.GET);
+            var request = new RestRequest(Method.POST);
             //request.AddHeader("authorization", BindApiKey);
             request.AddHeader("content-type", "application/json");
             IRestResponse response = client.Execute(request);
