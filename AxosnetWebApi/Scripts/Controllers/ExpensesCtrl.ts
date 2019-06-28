@@ -3,7 +3,7 @@
 interface ExpenseListScope extends ng.IScope {
     message: string;
     search();
-    //providers: AxosnetWebApi.Models.ProviderVM[];
+    expenses: AxosnetWebApi.Models.ExpenseInvoices.ExpenseInvoiceVM[];
     responseMessage: string;
     addNewExpense();
     newExpenseConcept: string;
@@ -21,6 +21,24 @@ angularApp.controller('expensesListCtrl', function ($scope: ExpenseListScope, $h
     $scope.newExpenseExchangeRate = 1;
     $scope.selectedProvider = $scope.backendData.Providers[0];
     $scope.selectedCurrency = $scope.backendData.Currencies[0];
+
+    $scope.search = function () {
+        $http({
+            method: 'GET',
+            url: '../ExpenseInvoices/GetAllExpenseInvoices',
+            params: {
+            }
+        })
+            .success(function (data: AxosnetWebApi.Models.ExpenseInvoices.ExpenseInvoiceVM[], status, headers, config) {
+                $scope.expenses = data;
+
+
+            });
+
+
+    }
+
+    $scope.search();
 
     $scope.openAddExpensePopUp = function () {
         $('#expensePanel').modal("show");
@@ -56,7 +74,7 @@ angularApp.controller('expensesListCtrl', function ($scope: ExpenseListScope, $h
                 $scope.newExpenseCurrencyCode = 'MXN';
                 $scope.newExpenseTotal = undefined;
                 $scope.selectedProvider = $scope.backendData.Providers[0];
-               // $scope.search();
+                $scope.search();
 
             });
     }

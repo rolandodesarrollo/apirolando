@@ -19,6 +19,32 @@
         </div>
     </div>
 
+    <table class="table nav-stacked">
+        <thead>
+            <tr>
+                <td># Factura</td>
+                <td>Nombre Proveedor</td>
+                <td>Monto total</td>
+                <td>Moneda</td>
+                <td>Pendiente</td>
+                <td>Concepto</td>
+            </tr>
+
+        </thead>
+        <tbody>
+            <tr ng-repeat="e in expenses track by $index">
+
+                <td>{{e.Id}}</td>
+                <td>{{e.ProviderName}}</td>
+                <td>{{e.Total | currency}}</td>
+                <td>{{e.CurrencyCode}}</td>
+                <td>{{e.Pending | currency}}</td>
+                <td>{{e.Concept}}</td>
+            </tr>
+        </tbody>
+
+    </table>
+
     <div id="expensePanel" class="modal fade" role="dialog">
         <div class="modal-dialog" style="width:400px;">
 
@@ -46,7 +72,7 @@
                                 Proveedor
                                 <br />
                                 <select class="input-sm" ng-model="selectedProvider.Value"
-                                        ng-options="st.Value as st.Text for st in backendData"  style="width: 300px;"></select>
+                                        ng-options="st.Value as st.Text for st in backendData.Providers"  style="width: 300px;"></select>
                                 <br />
                                 <br />
                                 <textarea class="form-control input-sm" ng-model="newExpenseConcept" placeholder="Concepto "></textarea>
@@ -57,7 +83,17 @@
                                         <br />
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control input-sm" ng-model="newExpenseCurrencyCode" placeholder="Moneda">
+                                        <select class="input-sm"" ng-model="selectedCurrency"
+                                                ng-options="sc for sc in backendData.Currencies" style="width: 96px;"></select>
+                                        <br />
+                                    </div>
+                                </div>
+                                <br />
+                                <div  ng-show="selectedCurrency != 'MXN'" class="row">
+                                    
+                                    <div class="col-sm-6">
+                                        Tipo de cambio
+                                        <input type="text" class="form-control input-sm" ng-model="newExpenseExchangeRate" placeholder="Tipo de Cambio(TC)">
                                         <br />
                                     </div>
                                 </div>

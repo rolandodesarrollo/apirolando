@@ -29,6 +29,13 @@ namespace AxosnetWebApi.ServiceComponents
             return 0;
         }
 
+        public List<ExpenseInvoiceVM> GetAllExpenseInvoices()
+        {
+            var expensesJson = GetApiResponse("http://apirolando.azurewebsites.net/api/ExpenseInvoice");
+            var expenses = DeserializeJson(new List<ExpenseInvoiceVM>(), expensesJson.Content);
+            return expenses;
+        }
+
         public ExpenseBackendDataVM GetExpenseListBackendData()
         {
             var backendData = new ExpenseBackendDataVM();

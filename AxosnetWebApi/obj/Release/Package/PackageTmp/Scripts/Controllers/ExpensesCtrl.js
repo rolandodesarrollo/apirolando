@@ -1,7 +1,20 @@
 var angularApp = angular.module('axosnetApp', []);
 angularApp.controller('expensesListCtrl', function ($scope, $http) {
     $scope.message = "Lista de gastos registrados";
-    $scope.selectedProvider = $scope.backendData[0];
+    $scope.newExpenseExchangeRate = 1;
+    $scope.selectedProvider = $scope.backendData.Providers[0];
+    $scope.selectedCurrency = $scope.backendData.Currencies[0];
+    $scope.search = function () {
+        $http({
+            method: 'GET',
+            url: '../ExpenseInvoices/GetAllExpenseInvoices',
+            params: {}
+        })
+            .success(function (data, status, headers, config) {
+            $scope.expenses = data;
+        });
+    };
+    $scope.search();
     $scope.openAddExpensePopUp = function () {
         $('#expensePanel').modal("show");
     };
@@ -22,12 +35,17 @@ angularApp.controller('expensesListCtrl', function ($scope, $http) {
                 concept: $scope.newExpenseConcept,
                 providerID: $scope.selectedProvider.Value,
                 amount: $scope.newExpenseTotal,
-                currencyCode: $scope.newExpenseCurrencyCode,
+                currencyCode: $scope.selectedCurrency,
+                exchangeRate: $scope.newExpenseExchangeRate,
             }
         })
             .success(function (data, status, headers, config) {
-            $('#providerPanel').modal("hide");
-            // $scope.search();
+            $('#expensePanel').modal("hide");
+            $scope.newExpenseConcept = undefined;
+            $scope.newExpenseCurrencyCode = 'MXN';
+            $scope.newExpenseTotal = undefined;
+            $scope.selectedProvider = $scope.backendData.Providers[0];
+            $scope.search();
         });
     };
 });

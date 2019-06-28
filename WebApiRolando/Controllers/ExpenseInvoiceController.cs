@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using WebApiRolando.Backend;
+using WebApiRolando.Models.ExpenseInvoices;
 using WebApiRolando.Models.Providers;
 
 namespace WebApiRolando.Controllers
@@ -13,10 +14,10 @@ namespace WebApiRolando.Controllers
     {
         // GET: ExpenseInvoice
 
-        public List<ProvidersDTO> GetAllProviders()
+        public List<ExpenseInvoiceDTO> GetAllExpenseInvoices()
         {
-            var providers = new ProviderSC().GetAllProvidersList();
-            return providers;
+            var expenses = new ExpenseInvoiceSC().GetAllExpensesList();
+            return expenses;
         }
 
         [System.Web.Http.HttpGet]

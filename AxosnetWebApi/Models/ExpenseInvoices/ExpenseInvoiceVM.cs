@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using TypeLite;
 
-namespace WebApiRolando.Models.ExpenseInvoices
+namespace AxosnetWebApi.Models.ExpenseInvoices
 {
-    public class ExpenseInvoiceDTO
+    [TsClass]
+    public class ExpenseInvoiceVM
     {
         public long Id { get; set; }
         public string Concept { get; set; }
@@ -16,6 +18,6 @@ namespace WebApiRolando.Models.ExpenseInvoices
         public string AdditionalNotes { get; set; }
         public long ProviderId { get; set; }
         public int Status { get; set; }
-        public string ProviderName { get; internal set; }
+        public string ProviderName { get; set; }
     }
 }

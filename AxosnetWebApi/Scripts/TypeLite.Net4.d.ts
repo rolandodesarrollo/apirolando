@@ -22,6 +22,18 @@ declare module AxosnetWebApi.Models.ExpenseInvoices {
 		Currencies: string[];
 		Providers: AxosnetWebApi.Models.TextValue[];
 	}
+	interface ExpenseInvoiceVM {
+		AdditionalNotes: string;
+		Concept: string;
+		CurrencyCode: string;
+		ExchangeRate: number;
+		Id: number;
+		Pending: number;
+		ProviderId: number;
+		ProviderName: string;
+		Status: number;
+		Total: number;
+	}
 }
 
 

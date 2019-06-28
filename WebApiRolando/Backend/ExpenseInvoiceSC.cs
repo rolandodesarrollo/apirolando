@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using WebApiRolando.DataAccess;
+using WebApiRolando.Models.ExpenseInvoices;
 
 namespace WebApiRolando.Backend
 {
@@ -27,6 +28,25 @@ namespace WebApiRolando.Backend
             return newExpenseInvoice.Id;
             
 
+        }
+
+        public List<ExpenseInvoiceDTO> GetAllExpensesList()
+        {
+            var expenses = DataContext.ExpenseInvoices.Select(s => new ExpenseInvoiceDTO() {
+                Id = s.Id, 
+                Pending = s.Pending,
+                Concept = s.Concept, 
+                AdditionalNotes = s.AdditionalNotes,
+                ProviderId = s.ProviderId,
+                ProviderName = s.ProviderId + " - " + s.Providers.ProviderName,
+                CurrencyCode = s.CurrencyCode,
+                ExchangeRate = s.ExchangeRate,
+                Status = s.Status,
+                Total = s.Total,
+                
+            }).ToList();
+
+            return expenses;
         }
     }
 }
