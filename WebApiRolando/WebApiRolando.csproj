@@ -204,9 +204,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Backend\BaseSC.cs" />
+    <Compile Include="Backend\ExpenseInvoicePaymentSC.cs" />
     <Compile Include="Backend\ExpenseInvoiceSC.cs" />
+    <Compile Include="Backend\ExpenseInvoiceStatusCodes.cs" />
     <Compile Include="Backend\ProviderSC.cs" />
     <Compile Include="Controllers\ExpenseInvoiceController.cs" />
+    <Compile Include="Controllers\ExpenseInvoicePaymentsController.cs" />
     <Compile Include="Controllers\ProviderController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="DataAccess\ExpenseInvoices.cs">
@@ -240,6 +243,7 @@
     <Compile Include="Models\ExpenseInvoices\ExpenseInvoiceDTO.cs" />
     <Compile Include="Models\Providers\NewProviderDTO.cs" />
     <Compile Include="Models\Providers\ProvidersDTO.cs" />
+    <Compile Include="Models\TextValue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -264,6 +268,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\ExpenseInvoicePayments\" />
     <Folder Include="Views\ExpenseInvoice\" />
     <Folder Include="Views\Provider\" />
     <Folder Include="Views\Test\" />
