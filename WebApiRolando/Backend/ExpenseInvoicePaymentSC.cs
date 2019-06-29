@@ -9,13 +9,13 @@ namespace WebApiRolando.Backend
 {
     public class ExpenseInvoicePaymentSC : BaseSC
     {
-        public long AddExpenseInvoicePayment(decimal amount, long expenseID, string comment, DateTime creationDate, decimal exchangeRate, string currencyCode)
+        public long AddExpenseInvoicePayment(decimal amount, long expenseID, string comment, string creationDate, decimal exchangeRate, string currencyCode)
         {
             var expensePayment = new ExpensePayments()
             {
                 Amount = amount,
                 Comment = comment,
-                CreationDate = creationDate,
+                CreationDate = DateTime.Parse(creationDate),
                 CurrencyCode = currencyCode,
                 ExpenseInvoiceID = expenseID,
                 ExchangeRate = exchangeRate,

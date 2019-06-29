@@ -32,7 +32,7 @@ namespace WebApiRolando.Backend
 
         public void UpdateExpenseByPayment(long expenseID, decimal amount)
         {
-            var expense = GetAllExpensesList().FirstOrDefault(f => f.Id == expenseID);
+            var expense = DataContext.ExpenseInvoices.FirstOrDefault(f => f.Id == expenseID);
 
             expense.Pending = expense.Total - expense.Pending;
             expense.Status = expense.Pending == 0 ? ExpenseInvoiceStatusCodes.ExpensePayed : ExpenseInvoiceStatusCodes.ExpenseActive;

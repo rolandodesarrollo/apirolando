@@ -1,5 +1,6 @@
 ﻿using AxosnetWebApi.Models;
 using AxosnetWebApi.Models.ExpenseInvoicePayments;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,24 @@ namespace AxosnetWebApi.ServiceComponents
             backendData.Currencies = Currencies.GetCurrencyCodes();
 
             return backendData;
+        }
+
+        public long AddExpensePayment(decimal amount, long expenseID, string comment, DateTime creationDate, decimal exchangeRate, string currencyCode)
+        {
+            var url = "http://apirolando.azurewebsites.net/api/AddExpensePayment?amount=" + amount + "&expenseID=" + expenseID
+                + "&comment=" + comment + "&creationDate=" + creationDate.ToString() + "&exchangeRate=" + exchangeRate + "&currencyCode=" + currencyCode;
+
+            IRestResponse response = PostAPIResponse(url);
+            try
+            {
+                return long.Parse(response.Content);
+            }
+            catch (Exception)
+            {
+
+            }
+
+            return 0;
         }
     }
 }

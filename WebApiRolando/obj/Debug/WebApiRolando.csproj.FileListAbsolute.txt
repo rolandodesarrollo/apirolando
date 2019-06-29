@@ -74,6 +74,8 @@ C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\WebApiRolando\bin\WebApiRolando
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\WebApiRolando\bin\WebApiRolando.dll
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\WebApiRolando\bin\WebApiRolando.pdb
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\WebApiRolando\bin\Antlr3.Runtime.dll
+C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\WebApiRolando\bin\EntityFramework.dll
+C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\WebApiRolando\bin\EntityFramework.SqlServer.dll
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\WebApiRolando\bin\Microsoft.AI.Agent.Intercept.dll
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\WebApiRolando\bin\Microsoft.AI.DependencyCollector.dll
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\WebApiRolando\bin\Microsoft.AI.PerfCounterCollector.dll
@@ -96,6 +98,8 @@ C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\WebApiRolando\bin\System.Web.We
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\WebApiRolando\bin\System.Web.WebPages.Razor.dll
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\WebApiRolando\bin\WebGrease.dll
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\WebApiRolando\bin\Antlr3.Runtime.pdb
+C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\WebApiRolando\bin\EntityFramework.xml
+C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\WebApiRolando\bin\EntityFramework.SqlServer.xml
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\WebApiRolando\bin\Microsoft.AI.DependencyCollector.xml
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\WebApiRolando\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\WebApiRolando\bin\Microsoft.AI.Web.xml
@@ -113,10 +117,6 @@ C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\WebApiRolando\bin\Newtonsoft.Js
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\WebApiRolando\bin\System.Net.Http.Formatting.xml
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\WebApiRolando\bin\System.Web.Http.xml
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\WebApiRolando\bin\System.Web.Http.WebHost.xml
-C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\WebApiRolando\obj\Debug\WebApiRolando.csprojResolveAssemblyReference.cache
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\WebApiRolando\obj\Debug\WebApiRolando.dll
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\WebApiRolando\obj\Debug\WebApiRolando.pdb
-C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\WebApiRolando\bin\EntityFramework.dll
-C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\WebApiRolando\bin\EntityFramework.SqlServer.dll
-C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\WebApiRolando\bin\EntityFramework.xml
-C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\WebApiRolando\bin\EntityFramework.SqlServer.xml
+C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\WebApiRolando\obj\Debug\WebApiRolando.csprojResolveAssemblyReference.cache

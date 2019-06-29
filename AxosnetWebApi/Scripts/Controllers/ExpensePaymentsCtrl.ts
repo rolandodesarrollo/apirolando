@@ -18,6 +18,8 @@ interface ExpensePaymentsListScope extends ng.IScope {
     changeAmountByCurrency(selectedCurrency: string);
     paymentExchangeRate: number;
     modifyPaymentAmount(paymentExchangeRate: number);
+    paymentDate: Date;
+    paymentComment: string;
 }
 
 angularApp.controller('expensePaymentsListCtrl', function ($scope: ExpensePaymentsListScope, $http: ng.IHttpService) {
@@ -25,7 +27,7 @@ angularApp.controller('expensePaymentsListCtrl', function ($scope: ExpensePaymen
     $scope.newPaymentExchangeRate = 1;
     $scope.selectedExpense = $scope.backendData.Expenses[0];
     $scope.selectedCurrency = $scope.backendData.Currencies[0];
-    
+    $scope.paymentDate = new Date();
     
 
     $scope.getSelectedExpense = function (selectedExpense: any) {
@@ -82,12 +84,41 @@ angularApp.controller('expensePaymentsListCtrl', function ($scope: ExpensePaymen
 
     $scope.addNewPaymentExpense = function () {
         $scope.responseMessage = "";
-       
 
-        if (($scope.paymentExchangeRate * $scope.paymentAmount) > $scope.expenseDetailed.Pending) {
+        var amountToPay = $scope.paymentExchangeRate * $scope.paymentAmount;
+        if (amountToPay <= 0) {
+            $scope.responseMessage = "El pago no puede ser por una cantidad menor o igual a cero: " + ($scope.paymentExchangeRate * $scope.paymentAmount) + " > " + $scope.expenseDetailed.Pending + " " + $scope.expenseDetailed.CurrencyCode;
+            return;
+        }
+
+        if (amountToPay > $scope.expenseDetailed.Pending) {
             $scope.responseMessage = "No se puede pagar un monto superior al de la factura: " + ($scope.paymentExchangeRate * $scope.paymentAmount) + " > " + $scope.expenseDetailed.Pending + " "+ $scope.expenseDetailed.CurrencyCode;
             return;
         }
+
+
+          $http({
+            method: 'POST',
+            url: '../ExpenseInvoicePayment/AddExpensePayment',
+            data: {
+                amount: $scope.paymentAmount,
+                expenseID: $scope.selectedExpense.Value,
+                comment: $scope.paymentComment,
+                creationDate: $scope.paymentDate,
+                exchangeRate: $scope.paymentExchangeRate,
+                currencyCode: $scope.selectedCurrency,
+            }
+        })
+            .success(function (data: AxosnetWebApi.Models.ProviderVM[], status, headers, config) {
+                $('#expensePanel').modal("hide");
+                //$scope.amount = undefined;
+                //$scope.newExpenseCurrencyCode = 'MXN';
+                //$scope.newExpenseTotal = undefined;
+                //$scope.selectedProvider = $scope.backendData.Providers[0];
+                //$scope.search();
+
+            });
+
         //if (!$scope.newExpenseConcept) {
         //    $scope.responseMessage = "Se necesita agregar concepto de la factura";
         //    return;
