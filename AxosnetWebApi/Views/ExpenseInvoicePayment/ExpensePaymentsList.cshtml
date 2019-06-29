@@ -1,51 +1,30 @@
 ﻿
 @{
-    ViewBag.Title = "Lista de gastos";
+    ViewBag.Title = "ExpensePaymentsList";
 }
 
-<script src="~/Scripts/Controllers/ExpensesCtrl.js"></script>
+
+<script src="~/Scripts/Controllers/ExpensePaymentsCtrl.js"></script>
+
 
 <span ng-init="backendData = @ViewBag.backendData"></span>
-<div ng-controller="expensesListCtrl">
+<div ng-controller="expensePaymentsListCtrl">
     <br />
     <br />
+
     <div class="row">
         <div class="col-sm-6">
             <h3>{{message}}</h3>
             <h4>{{expenses.length}} registrados</h4>
         </div>
         <div class="col-sm-6">
-            <p><a href="#" ng-click="openAddExpensePopUp()" class="btn btn-success btn-sm pull-right">Agregar</a></p>
+            <p><a href="#" ng-click="openAddExpensePaymentPopUp()" class="btn btn-success btn-sm pull-right">Agregar</a></p>
         </div>
     </div>
+    <br />
 
-    <table class="table nav-stacked">
-        <thead>
-            <tr>
-                <td># Factura</td>
-                <td>Nombre Proveedor</td>
-                <td>Monto total</td>
-                <td>Moneda</td>
-                <td>Pendiente</td>
-                <td>Concepto</td>
-            </tr>
 
-        </thead>
-        <tbody>
-            <tr ng-repeat="e in expenses track by $index">
-
-                <td>{{e.Id}}</td>
-                <td>{{e.ProviderName}}</td>
-                <td>{{e.Total | currency}}</td>
-                <td>{{e.CurrencyCode}}</td>
-                <td>{{e.Pending | currency}}</td>
-                <td>{{e.Concept}}</td>
-            </tr>
-        </tbody>
-
-    </table>
-
-    <div id="expensePanel" class="modal fade" role="dialog">
+    <div id="expensePaymentPanel" class="modal fade" role="dialog">
         <div class="modal-dialog" style="width:400px;">
 
             <!-- Modal content-->
@@ -56,7 +35,7 @@
                         <div class="col-sm-12" style="top:20px">
                             <h4 class="modal-title" style="padding-left:45px">
                                 <i class="fa fa-sheet"></i>
-                                Agregar gasto
+                                Agregar pago
                             </h4>
                             <br />
                         </div>
@@ -66,16 +45,14 @@
                 <div class="modal-body">
                     <div class="panel-body">
 
-                        <form>
+                        <form style="width:400px">
                             <div>
-                                <h4>Información del gasto</h4>
-                                Proveedor
+                                <h4>Información del pago</h4>
+                                Factura de gasto
                                 <br />
-                                <select class="input-sm" ng-model="selectedProvider.Value"
-                                        ng-options="st.Value as st.Text for st in backendData.Providers"  style="width: 300px;"></select>
+                                <select class="input-sm" ng-model="selectedExpense.Value" ng-change="getSelectedExpense(selectedExpense)"
+                                        ng-options="se.Value as se.Text for se in backendData.Expenses" style="width:300px"></select>
                                 <br />
-                                <br />
-                                <textarea class="form-control input-sm" ng-model="newExpenseConcept" placeholder="Concepto "></textarea>
                                 <br />
                                 <div class="row">
                                     <div class="col-sm-6">
@@ -83,20 +60,23 @@
                                         <br />
                                     </div>
                                     <div class="col-sm-6">
-                                        <select class="input-sm"" ng-model="selectedCurrency"
+                                        <select class="input-sm"  ng-model="selectedCurrency"
                                                 ng-options="sc for sc in backendData.Currencies" style="width: 96px;"></select>
                                         <br />
                                     </div>
                                 </div>
                                 <br />
-                                <div  ng-show="selectedCurrency != 'MXN'" class="row">
-                                    
+                                <div ng-show="selectedCurrency != 'MXN'" class="row">
+
                                     <div class="col-sm-6">
                                         Tipo de cambio
                                         <input type="text" class="form-control input-sm" ng-model="newExpenseExchangeRate" placeholder="Tipo de Cambio(TC)">
                                         <br />
                                     </div>
                                 </div>
+                                <textarea class="form-control input-sm" ng-model="newExpenseConcept" placeholder="Notas "></textarea>
+                                <br />
+                                
                             </div>
                         </form>
 
@@ -105,7 +85,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-success" ng-click="addNewExpense()">Guardar</button>
+                    <button type="button" class="btn btn-success" ng-click="addNewPaymentExpense()">Guardar</button>
                 </div>
             </div>
 
@@ -113,4 +93,3 @@
     </div>
 
 </div>
-

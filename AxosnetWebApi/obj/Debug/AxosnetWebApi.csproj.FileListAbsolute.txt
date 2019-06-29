@@ -1,3 +1,10 @@
+C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\AxosnetWebApi.dll
+C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\System.Web.Mvc.dll
+C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\TypeLite.dll
+C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\TypeLite.Net4.dll
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\ApplicationInsights.config
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\roslyn\csc.exe
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -12,8 +19,6 @@ C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\roslyn\vbc.ex
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\roslyn\VBCSCompiler.exe
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\AxosnetWebApi.dll.config
-C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\AxosnetWebApi.dll
-C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\AxosnetWebApi.pdb
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\Antlr3.Runtime.dll
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\EntityFramework.dll
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\EntityFramework.SqlServer.dll
@@ -24,9 +29,6 @@ C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\Microsoft.AI.
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\Microsoft.AI.Web.dll
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\Microsoft.AI.WindowsServer.dll
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\Microsoft.ApplicationInsights.dll
-C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\Microsoft.AspNet.Identity.Core.dll
-C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\Microsoft.AspNet.Identity.EntityFramework.dll
-C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\Microsoft.AspNet.Identity.Owin.dll
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\Microsoft.Owin.dll
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\Microsoft.Owin.Host.SystemWeb.dll
@@ -40,8 +42,8 @@ C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\Microsoft.Owi
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\Newtonsoft.Json.dll
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\Owin.dll
+C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\RestSharp.dll
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\System.Web.Helpers.dll
-C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\System.Web.Mvc.dll
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\System.Web.Optimization.dll
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\System.Web.Razor.dll
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\System.Web.WebPages.Deployment.dll
@@ -54,6 +56,7 @@ C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\Microsoft.AI.
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\Microsoft.ApplicationInsights.xml
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\RestSharp.xml
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\System.Web.Helpers.xml
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\System.Web.Mvc.xml
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\System.Web.Optimization.xml
@@ -61,6 +64,8 @@ C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\System.Web.Ra
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\System.Web.WebPages.xml
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\System.Web.WebPages.Deployment.xml
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\System.Web.WebPages.Razor.xml
+C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\TypeLite.pdb
+C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\TypeLite.Net4.pdb
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\Antlr3.Runtime.pdb
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\Newtonsoft.Json.xml
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\EntityFramework.xml
@@ -80,9 +85,4 @@ C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\Microsoft.Owi
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\obj\Debug\AxosnetWebApi.csprojResolveAssemblyReference.cache
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\obj\Debug\AxosnetWebApi.dll
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\obj\Debug\AxosnetWebApi.pdb
-C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\TypeLite.dll
-C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\TypeLite.Net4.dll
-C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\TypeLite.pdb
-C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\TypeLite.Net4.pdb
-C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\RestSharp.dll
-C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\RestSharp.xml
+C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\AxosnetWebApi.pdb

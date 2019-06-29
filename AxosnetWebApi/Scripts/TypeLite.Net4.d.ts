@@ -17,6 +17,12 @@ declare module AxosnetWebApi.Models {
 		Value: number;
 	}
 }
+declare module AxosnetWebApi.Models.ExpenseInvoicePayments {
+	interface ExpensePaymentsBackendDataVM {
+		Currencies: string[];
+		Expenses: AxosnetWebApi.Models.TextValue[];
+	}
+}
 declare module AxosnetWebApi.Models.ExpenseInvoices {
 	interface ExpenseBackendDataVM {
 		Currencies: string[];

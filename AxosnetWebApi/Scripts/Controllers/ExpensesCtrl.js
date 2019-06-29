@@ -49,4 +49,3 @@ angularApp.controller('expensesListCtrl', function ($scope, $http) {
         });
     };
 });
-//# sourceMappingURL=ExpensesCtrl.js.map
