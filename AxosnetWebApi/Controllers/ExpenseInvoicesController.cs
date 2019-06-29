@@ -25,6 +25,12 @@ namespace AxosnetWebApi.Controllers
             return GetJsonNetResult(providers);
         }
 
+        public ActionResult GetExpenseInvoiceByID(long expenseID)
+        {
+            var providers = new ExpenseInvoicesSC().GetExpenseInvoiceByID(expenseID);
+            return GetJsonNetResult(providers);
+        }
+
         [HttpPost]
         public ActionResult AddNewExpenseInvoice(string concept, long providerID, decimal amount, string currencyCode, decimal exchangeRate)
         {

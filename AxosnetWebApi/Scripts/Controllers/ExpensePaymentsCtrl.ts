@@ -13,7 +13,11 @@ interface ExpensePaymentsListScope extends ng.IScope {
     selectedCurrency: string;
     openAddExpensePaymentPopUp();
     getSelectedExpense(selectedExpense: any);
-   
+    expenseDetailed: AxosnetWebApi.Models.ExpenseInvoices.ExpenseInvoiceVM
+    paymentAmount: number;
+    changeAmountByCurrency(selectedCurrency: string);
+    paymentExchangeRate: number;
+    modifyPaymentAmount(paymentExchangeRate: number);
 }
 
 angularApp.controller('expensePaymentsListCtrl', function ($scope: ExpensePaymentsListScope, $http: ng.IHttpService) {
@@ -21,12 +25,39 @@ angularApp.controller('expensePaymentsListCtrl', function ($scope: ExpensePaymen
     $scope.newPaymentExchangeRate = 1;
     $scope.selectedExpense = $scope.backendData.Expenses[0];
     $scope.selectedCurrency = $scope.backendData.Currencies[0];
+    
+    
 
-    $scope.getSelectedExpense = function (selectedExpense: any)
-    {
-        alert(selectedExpense.Value);
+    $scope.getSelectedExpense = function (selectedExpense: any) {
+        $http({
+            method: 'GET',
+            url: '../ExpenseInvoices/GetExpenseInvoiceByID',
+            params: {
+                expenseID: $scope.selectedExpense.Value
+            }
+        })
+            .success(function (data: AxosnetWebApi.Models.ExpenseInvoices.ExpenseInvoiceVM, status, headers, config) {
+                $scope.expenseDetailed = data;
+                $scope.selectedCurrency = $scope.backendData.Currencies[0];
+                $scope.paymentExchangeRate = data.ExchangeRate;
+                $scope.paymentAmount = data.Pending * data.ExchangeRate;
+            });
+
+
     }
 
+    $scope.changeAmountByCurrency = function (selectedCurrency: string) {
+
+        if (selectedCurrency != 'MXN')
+            $scope.paymentAmount = $scope.expenseDetailed.Pending;
+        else
+            $scope.paymentAmount = $scope.expenseDetailed.Pending * $scope.expenseDetailed.ExchangeRate;
+        
+    }
+
+
+
+    $scope.getSelectedExpense($scope.selectedExpense);
     //$scope.search = function () {
     //    $http({
     //        method: 'GET',
@@ -51,8 +82,12 @@ angularApp.controller('expensePaymentsListCtrl', function ($scope: ExpensePaymen
 
     $scope.addNewPaymentExpense = function () {
         $scope.responseMessage = "";
-        alert($scope.selectedExpense.Value);
+       
 
+        if (($scope.paymentExchangeRate * $scope.paymentAmount) > $scope.expenseDetailed.Pending) {
+            $scope.responseMessage = "No se puede pagar un monto superior al de la factura: " + ($scope.paymentExchangeRate * $scope.paymentAmount) + " > " + $scope.expenseDetailed.Pending + " "+ $scope.expenseDetailed.CurrencyCode;
+            return;
+        }
         //if (!$scope.newExpenseConcept) {
         //    $scope.responseMessage = "Se necesita agregar concepto de la factura";
         //    return;

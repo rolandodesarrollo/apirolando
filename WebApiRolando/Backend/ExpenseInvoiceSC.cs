@@ -21,12 +21,12 @@ namespace WebApiRolando.Backend
             newExpenseInvoice.Status = 1;// Active
             newExpenseInvoice.Total = total;
             newExpenseInvoice.Pending = total;
-            
+
             DataContext.ExpenseInvoices.Add(newExpenseInvoice);
             DataContext.SaveChanges();
             DataContext.Entry(newExpenseInvoice).GetDatabaseValues();
             return newExpenseInvoice.Id;
-            
+
 
         }
 
@@ -39,12 +39,21 @@ namespace WebApiRolando.Backend
             DataContext.SaveChanges();
         }
 
+        public ExpenseInvoiceDTO GetExpenseInvoiceByID(long expenseID)
+        {
+            var expenseDetails = new ExpenseInvoiceDTO();
+            var expenseInDB = GetAllExpensesList().FirstOrDefault(f => f.Id == expenseID);
+
+            return expenseInDB;
+        }
+
         public List<ExpenseInvoiceDTO> GetAllExpensesList()
         {
-            var expenses = DataContext.ExpenseInvoices.Select(s => new ExpenseInvoiceDTO() {
-                Id = s.Id, 
+            var expenses = DataContext.ExpenseInvoices.Select(s => new ExpenseInvoiceDTO()
+            {
+                Id = s.Id,
                 Pending = s.Pending,
-                Concept = s.Concept, 
+                Concept = s.Concept,
                 AdditionalNotes = s.AdditionalNotes,
                 ProviderId = s.ProviderId,
                 ProviderName = s.ProviderId + " - " + s.Providers.ProviderName,
@@ -52,7 +61,7 @@ namespace WebApiRolando.Backend
                 ExchangeRate = s.ExchangeRate,
                 Status = s.Status,
                 Total = s.Total,
-                
+
             }).ToList();
 
             return expenses;

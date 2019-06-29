@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using WebApiRolando.Backend;
 
 namespace WebApiRolando.Models.ExpenseInvoices
 {
@@ -17,5 +18,14 @@ namespace WebApiRolando.Models.ExpenseInvoices
         public long ProviderId { get; set; }
         public int Status { get; set; }
         public string ProviderName { get; internal set; }
+        public string StatusText
+        {
+            get
+            {
+                return new ExpenseInvoiceStatusCodes()
+                    .GetAllExpenseInvoiceStatusCodes()
+                    .FirstOrDefault(f => f.Value == this.Status).Text;
+            }
+        }
     }
 }

@@ -45,7 +45,7 @@
                 <div class="modal-body">
                     <div class="panel-body">
 
-                        <form style="width:400px">
+                        <form>
                             <div>
                                 <h4>Información del pago</h4>
                                 Factura de gasto
@@ -54,23 +54,34 @@
                                         ng-options="se.Value as se.Text for se in backendData.Expenses" style="width:300px"></select>
                                 <br />
                                 <br />
+                                <div class="well" style="width:280px">
+                                    <h5>Proveedor : {{expenseDetailed.ProviderName}} </h5>
+                                    <h5>Monto: {{expenseDetailed.Total | currency}}</h5>
+                                    <h5>Pendiente: {{expenseDetailed.Pending | currency}}</h5>
+                                    <h5>Moneda: {{expenseDetailed.CurrencyCode}}</h5>
+                                    <h5> {{expenseDetailed.Concept}}</h5>
+                                </div>
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control input-sm" ng-model="newExpenseTotal" placeholder="Monto ($)">
+                                        <input type="text" class="form-control input-sm"  ng-model="paymentAmount"  placeholder="Monto ($)">
                                         <br />
                                     </div>
                                     <div class="col-sm-6">
-                                        <select class="input-sm"  ng-model="selectedCurrency"
+                                        <select class="input-sm"  ng-model="selectedCurrency" ng-change="changeAmountByCurrency(selectedCurrency)"
                                                 ng-options="sc for sc in backendData.Currencies" style="width: 96px;"></select>
                                         <br />
                                     </div>
                                 </div>
                                 <br />
-                                <div ng-show="selectedCurrency != 'MXN'" class="row">
+                                <div ng-show="selectedCurrency != 'MXN' || expenseDetailed.CurrencyCode != 'MXN'" class="row">
 
                                     <div class="col-sm-6">
                                         Tipo de cambio
-                                        <input type="text" class="form-control input-sm" ng-model="newExpenseExchangeRate" placeholder="Tipo de Cambio(TC)">
+                                        <input type="text" class="form-control input-sm" ng-change="modifyPaymentAmount(paymentExchangeRate)" ng-model="paymentExchangeRate" placeholder="Tipo de Cambio(TC)">
+                                        <br />
+                                    </div>
+                                    <div class="col-sm-6">
+                                        {{paymentExchangeRate * paymentAmount }}  {{expenseDetailed.CurrencyCode}}
                                         <br />
                                     </div>
                                 </div>

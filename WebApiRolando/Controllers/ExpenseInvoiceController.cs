@@ -26,5 +26,12 @@ namespace WebApiRolando.Controllers
         {
             return new ExpenseInvoiceSC().AddExpenseInvoice(concept, providerId, exchangeRate, total, currencyCode, additionalNotes);
         }
+
+        [System.Web.Http.HttpGet]
+        [System.Web.Http.Route("api/GetExpenseInvoiceByID")]
+        public ExpenseInvoiceDTO GetExpenseInvoiceByID(long expenseID)
+        {
+            return new ExpenseInvoiceSC().GetExpenseInvoiceByID(expenseID);
+        }
     }
 }

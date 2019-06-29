@@ -19,5 +19,6 @@ namespace AxosnetWebApi.Models.ExpenseInvoices
         public long ProviderId { get; set; }
         public int Status { get; set; }
         public string ProviderName { get; set; }
+        public string StatusText { get; set; }
     }
 }

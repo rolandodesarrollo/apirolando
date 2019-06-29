@@ -29,10 +29,17 @@ namespace AxosnetWebApi.ServiceComponents
             return 0;
         }
 
+        public ExpenseInvoiceVM GetExpenseInvoiceByID(long expenseID)
+        {
+            var apiExpense = GetApiResponse("http://apirolando.azurewebsites.net/api/GetExpenseInvoiceByID?expenseID="+ expenseID);
+            var expense = DeserializeJson(new ExpenseInvoiceVM(), apiExpense.Content);
+            return expense;
+        }
+
         public List<ExpenseInvoiceVM> GetAllExpenseInvoices()
         {
-            var expensesJson = GetApiResponse("http://apirolando.azurewebsites.net/api/ExpenseInvoice");
-            var expenses = DeserializeJson(new List<ExpenseInvoiceVM>(), expensesJson.Content);
+            var expensesListJson = GetApiResponse("http://apirolando.azurewebsites.net/api/ExpenseInvoice");
+            var expenses = DeserializeJson(new List<ExpenseInvoiceVM>(), expensesListJson.Content);
             return expenses;
         }
 
