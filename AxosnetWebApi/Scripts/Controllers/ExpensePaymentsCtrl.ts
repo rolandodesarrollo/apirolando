@@ -92,6 +92,7 @@ angularApp.controller('expensePaymentsListCtrl', function ($scope: ExpensePaymen
         var amountToPay = $scope.paymentExchangeRate * $scope.paymentAmount;
 
         if ($scope.paymentDate == undefined) {
+
             $scope.responseMessage =  "La fecha del pago es obligatoria"
             return;
         }

@@ -42,4 +42,3 @@ angularApp.controller('providersListCtrl', function ($scope, $http) {
     };
     $scope.search();
 });
-//# sourceMappingURL=ProvidersCtrl.js.map
