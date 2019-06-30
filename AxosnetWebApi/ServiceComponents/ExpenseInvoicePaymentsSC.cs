@@ -17,7 +17,7 @@ namespace AxosnetWebApi.ServiceComponents
         {
             var backendData = new ExpensePaymentsBackendDataVM();
             backendData.Expenses =  new ExpenseInvoicesSC().GetAllExpenseInvoices().Where(w=> w.Status == ExpenseInvoiceStatusCodes.ExpenseActive)
-                   .Select(s => new TextValue { Text = "Gasto #" + s.Id
+                   .Select(s => new TextValue { Text = "Gasto #" + s.Id + "- Proveedor" + s.ProviderName + " $" + s.Pending + " " + s.CurrencyCode
                    , Value = s.Id }).ToList();
             backendData.Currencies = Currencies.GetCurrencyCodes();
 
@@ -36,7 +36,6 @@ namespace AxosnetWebApi.ServiceComponents
         {
             var url = "http://apirolando.azurewebsites.net/api/AddExpensePayment?amount=" + amount + "&expenseID=" + expenseID
                 + "&comment=" + comment + "&creationDate=" + creationDate.ToString() + "&exchangeRate=" + exchangeRate + "&currencyCode=" + currencyCode;
-
             IRestResponse response = PostAPIResponse(url);
             try
             {
@@ -44,9 +43,7 @@ namespace AxosnetWebApi.ServiceComponents
             }
             catch (Exception)
             {
-
             }
-
             return 0;
         }
     }
