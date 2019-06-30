@@ -18,7 +18,7 @@ namespace WebApiRolando.Backend
             newExpenseInvoice.ExchangeRate = exchangeRate;
             newExpenseInvoice.CurrencyCode = currencyCode;
             newExpenseInvoice.AdditionalNotes = additionalNotes;
-            newExpenseInvoice.Status = 1;// Active
+            newExpenseInvoice.Status = ExpenseInvoiceStatusCodes.ExpenseActive;
             newExpenseInvoice.Total = total;
             newExpenseInvoice.Pending = total;
 
@@ -34,7 +34,7 @@ namespace WebApiRolando.Backend
         {
             var expense = DataContext.ExpenseInvoices.FirstOrDefault(f => f.Id == expenseID);
 
-            expense.Pending = expense.Total - expense.Pending;
+            expense.Pending = expense.Pending - amount;
             expense.Status = expense.Pending == 0 ? ExpenseInvoiceStatusCodes.ExpensePayed : ExpenseInvoiceStatusCodes.ExpenseActive;
             DataContext.SaveChanges();
         }

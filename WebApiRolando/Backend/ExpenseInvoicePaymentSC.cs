@@ -24,7 +24,7 @@ namespace WebApiRolando.Backend
 
             DataContext.ExpensePayments.Add(expensePayment);
             DataContext.SaveChanges();
-            new ExpenseInvoiceSC().UpdateExpenseByPayment(expenseID, amount);
+            new ExpenseInvoiceSC().UpdateExpenseByPayment(expenseID, amount*exchangeRate);
 
             DataContext.Entry(expensePayment).GetDatabaseValues();
             return expensePayment.Id;
