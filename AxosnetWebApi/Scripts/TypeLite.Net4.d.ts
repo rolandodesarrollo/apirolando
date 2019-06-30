@@ -22,6 +22,14 @@ declare module AxosnetWebApi.Models.ExpenseInvoicePayments {
 		Currencies: string[];
 		Expenses: AxosnetWebApi.Models.TextValue[];
 	}
+	interface ExpensePaymentsVM {
+		Amount: number;
+		CreationDate: string;
+		CurrencyCode: string;
+		ExchangeRate: number;
+		ExpenseText: string;
+		ProviderName: string;
+	}
 }
 declare module AxosnetWebApi.Models.ExpenseInvoices {
 	interface ExpenseBackendDataVM {
@@ -38,6 +46,7 @@ declare module AxosnetWebApi.Models.ExpenseInvoices {
 		ProviderId: number;
 		ProviderName: string;
 		Status: number;
+		StatusText: string;
 		Total: number;
 	}
 }

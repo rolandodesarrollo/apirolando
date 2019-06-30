@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using WebApiRolando.Backend;
 using WebApiRolando.DataAccess;
+using WebApiRolando.Models.ExpensePayments;
 
 namespace WebApiRolando.Backend
 {
@@ -13,7 +14,7 @@ namespace WebApiRolando.Backend
         {
             var expensePayment = new ExpensePayments()
             {
-                Amount = amount,
+                Amount = amount * exchangeRate,
                 Comment = comment,
                 CreationDate = DateTime.Parse(creationDate),
                 CurrencyCode = currencyCode,
@@ -28,6 +29,22 @@ namespace WebApiRolando.Backend
             DataContext.Entry(expensePayment).GetDatabaseValues();
             return expensePayment.Id;
 
+        }
+
+        public List<ExpensePaymentsDTO> GetAllExpensePaymentsList()
+        {
+            var payments = DataContext.ExpensePayments.Select(s => new ExpensePaymentsDTO()
+            {
+                Id = s.Id,
+                Amount = s.Amount,
+                CreationDate = s.CreationDate.ToString(),
+                ProviderName = s.ExpenseInvoices.Providers.ProviderName,
+                CurrencyCode = s.CurrencyCode,
+                ExpenseText = "Gasto # " + s.ExpenseInvoiceID + " -" + s.ExpenseInvoices.Providers.ProviderName,
+                Comment = s.Comment,
+            }).ToList();
+
+            return payments;
         }
     }
 }

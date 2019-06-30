@@ -3,4 +3,7 @@
   <parameter name="AxosnetIdentityEntities-Web.config Connection String" description="AxosnetIdentityEntities Connection String used in web.config by the application to access the database." defaultValue="Server=axosnet.database.windows.net,1433;Database=AxosnetIdentity;User ID=axosnet;Password=r0lando#556;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;Enlist=False;" tags="SqlConnectionString">
     <parameterEntry kind="XmlFile" scope="C:\\Users\\ROLANDO\\Desktop\\Axosnet\ Test\\apirolando\\AxosnetWebApi\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='AxosnetIdentityEntities']/@connectionString" />
   </parameter>
+  <parameter name="WebApiRolando.DataAccess.AxosnetTestEntities-Web.config Connection String" description="WebApiRolando.DataAccess.AxosnetTestEntities Connection String used in web.config by the application to access the database." defaultValue="WebApiRolando.DataAccess.AxosnetTestEntities_ConnectionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\ROLANDO\\Desktop\\Axosnet\ Test\\apirolando\\AxosnetWebApi\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='WebApiRolando.DataAccess.AxosnetTestEntities']/@connectionString" />
+  </parameter>
 </parameters>

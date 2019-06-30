@@ -4,7 +4,7 @@
 interface ExpensePaymentsListScope extends ng.IScope {
     message: string;
     search();
-    //expenses: AxosnetWebApi.Models.ExpenseInvoices.ExpenseInvoiceVM[];
+    payments: AxosnetWebApi.Models.ExpenseInvoicePayments.ExpensePaymentsVM[];
     responseMessage: string;
     addNewPaymentExpense();
     newPaymentExchangeRate: number;
@@ -28,9 +28,29 @@ angularApp.controller('expensePaymentsListCtrl', function ($scope: ExpensePaymen
     $scope.selectedExpense = $scope.backendData.Expenses[0];
     $scope.selectedCurrency = $scope.backendData.Currencies[0];
     $scope.paymentDate = new Date();
-    
+
+
+    $scope.search = function () {
+        $http({
+            method: 'GET',
+            url: '../ExpenseInvoicePayment/GetAllExpensePayments',
+            params: {
+            }
+        })
+            .success(function (data: AxosnetWebApi.Models.ExpenseInvoicePayments.ExpensePaymentsVM[], status, headers, config) {
+                $scope.payments = data;
+
+            });
+
+
+    }
+
 
     $scope.getSelectedExpense = function (selectedExpense: any) {
+
+        if ($scope.selectedExpense == undefined)
+            return;
+
         $http({
             method: 'GET',
             url: '../ExpenseInvoices/GetExpenseInvoiceByID',
@@ -54,11 +74,11 @@ angularApp.controller('expensePaymentsListCtrl', function ($scope: ExpensePaymen
             $scope.paymentAmount = $scope.expenseDetailed.Pending;
         else
             $scope.paymentAmount = $scope.expenseDetailed.Pending * $scope.expenseDetailed.ExchangeRate;
-        
+
     }
 
 
-
+    $scope.search();
     $scope.getSelectedExpense($scope.selectedExpense);
     //$scope.search = function () {
     //    $http({
@@ -92,12 +112,12 @@ angularApp.controller('expensePaymentsListCtrl', function ($scope: ExpensePaymen
         }
 
         if (amountToPay > $scope.expenseDetailed.Pending) {
-            $scope.responseMessage = "No se puede pagar un monto superior al de la factura: " + ($scope.paymentExchangeRate * $scope.paymentAmount) + " > " + $scope.expenseDetailed.Pending + " "+ $scope.expenseDetailed.CurrencyCode;
+            $scope.responseMessage = "No se puede pagar un monto superior al de la factura: " + ($scope.paymentExchangeRate * $scope.paymentAmount) + " > " + $scope.expenseDetailed.Pending + " " + $scope.expenseDetailed.CurrencyCode;
             return;
         }
 
 
-          $http({
+        $http({
             method: 'POST',
             url: '../ExpenseInvoicePayment/AddExpensePayment',
             data: {
@@ -109,13 +129,13 @@ angularApp.controller('expensePaymentsListCtrl', function ($scope: ExpensePaymen
                 currencyCode: $scope.selectedCurrency,
             }
         })
-            .success(function (data: AxosnetWebApi.Models.ProviderVM[], status, headers, config) {
-                $('#expensePanel').modal("hide");
+            .success(function (data: number, status, headers, config) {
+                $scope.responseMessage = "Se ha dado de alta el recibo #" + data;
                 //$scope.amount = undefined;
                 //$scope.newExpenseCurrencyCode = 'MXN';
                 //$scope.newExpenseTotal = undefined;
                 //$scope.selectedProvider = $scope.backendData.Providers[0];
-                //$scope.search();
+                $scope.search();
 
             });
 

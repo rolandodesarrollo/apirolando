@@ -12,9 +12,19 @@ namespace AxosnetWebApi.Controllers
         // GET: ExpenseInvoicePayment
         public ActionResult ExpensePaymentsList()
         {
+            if (!User.Identity.IsAuthenticated)
+                return RedirectToAction("Login", "Account");
             var backendData = new ExpenseInvoicePaymentsSC().GetExpensePaymentsViewBagData();
             ViewBag.backendData = SerializeJSONData(backendData);
             return View();
+        }
+
+        public ActionResult GetAllExpensePayments()
+        {
+            if (!User.Identity.IsAuthenticated)
+                return RedirectToAction("Login", "Account");
+            var expenses = new ExpenseInvoicePaymentsSC().GetAllExpensePayments();
+            return GetJsonNetResult(expenses);
         }
 
         [HttpPost]

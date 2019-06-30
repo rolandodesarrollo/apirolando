@@ -5,7 +5,19 @@ angularApp.controller('expensePaymentsListCtrl', function ($scope, $http) {
     $scope.selectedExpense = $scope.backendData.Expenses[0];
     $scope.selectedCurrency = $scope.backendData.Currencies[0];
     $scope.paymentDate = new Date();
+    $scope.search = function () {
+        $http({
+            method: 'GET',
+            url: '../ExpenseInvoicePayment/GetAllExpensePayments',
+            params: {}
+        })
+            .success(function (data, status, headers, config) {
+            $scope.payments = data;
+        });
+    };
     $scope.getSelectedExpense = function (selectedExpense) {
+        if ($scope.selectedExpense == undefined)
+            return;
         $http({
             method: 'GET',
             url: '../ExpenseInvoices/GetExpenseInvoiceByID',
@@ -26,6 +38,7 @@ angularApp.controller('expensePaymentsListCtrl', function ($scope, $http) {
         else
             $scope.paymentAmount = $scope.expenseDetailed.Pending * $scope.expenseDetailed.ExchangeRate;
     };
+    $scope.search();
     $scope.getSelectedExpense($scope.selectedExpense);
     //$scope.search = function () {
     //    $http({
@@ -66,12 +79,12 @@ angularApp.controller('expensePaymentsListCtrl', function ($scope, $http) {
             }
         })
             .success(function (data, status, headers, config) {
-            $('#expensePanel').modal("hide");
+            $scope.responseMessage = "Se ha dado de alta el recibo #" + data;
             //$scope.amount = undefined;
             //$scope.newExpenseCurrencyCode = 'MXN';
             //$scope.newExpenseTotal = undefined;
             //$scope.selectedProvider = $scope.backendData.Providers[0];
-            //$scope.search();
+            $scope.search();
         });
         //if (!$scope.newExpenseConcept) {
         //    $scope.responseMessage = "Se necesita agregar concepto de la factura";

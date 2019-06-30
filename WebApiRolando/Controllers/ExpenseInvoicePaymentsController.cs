@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using WebApiRolando.Backend;
+using WebApiRolando.Models.ExpensePayments;
 using WebApiRolando.Models.Providers;
 
 namespace WebApiRolando.Controllers
@@ -12,10 +13,10 @@ namespace WebApiRolando.Controllers
     public class ExpenseInvoicePaymentsController : ApiController
     {
 
-        public List<ProvidersDTO> GetAllProviders()
+        public List<ExpensePaymentsDTO> GetAllExpensePaymentsList()
         {
-            var providers = new ProviderSC().GetAllProvidersList();
-            return providers;
+            var expenses = new ExpenseInvoicePaymentSC().GetAllExpensePaymentsList();
+            return expenses;
         }
 
 

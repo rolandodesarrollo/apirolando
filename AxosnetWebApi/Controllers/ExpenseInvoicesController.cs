@@ -13,6 +13,9 @@ namespace AxosnetWebApi.Controllers
         // GET: ExpenseInvoices
         public ActionResult ExpenseList()
         {
+            if (!User.Identity.IsAuthenticated)
+                return RedirectToAction("Login", "Account");
+
             var backendData = new ExpenseInvoicesSC().GetExpenseListBackendData();
             ViewBag.backendData = SerializeJSONData(backendData);
             
@@ -21,6 +24,9 @@ namespace AxosnetWebApi.Controllers
 
         public ActionResult GetAllExpenseInvoices()
         {
+            if (!User.Identity.IsAuthenticated)
+                return RedirectToAction("Login", "Account");
+        
             var providers = new ExpenseInvoicesSC().GetAllExpenseInvoices();
             return GetJsonNetResult(providers);
         }

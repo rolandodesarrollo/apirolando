@@ -15,7 +15,7 @@
     <div class="row">
         <div class="col-sm-6">
             <h3>{{message}}</h3>
-            <h4>{{expenses.length}} registrados</h4>
+            <h4>{{payments.length}} registrados</h4>
         </div>
         <div class="col-sm-6">
             <p><a href="#" ng-click="openAddExpensePaymentPopUp()" class="btn btn-success btn-sm pull-right">Agregar</a></p>
@@ -23,6 +23,29 @@
     </div>
     <br />
 
+    <table class="table nav-stacked">
+        <thead>
+            <tr>
+                <td># Pago</td>
+                <td>Proveedor</td>
+                <td>Concepto</td>
+                <td>Total</td>
+                <td>Fecha de pago</td>
+            </tr>
+
+        </thead>
+        <tbody>
+            <tr ng-repeat="p in payments track by $index">
+
+                <td>{{p.Id}}</td>
+                <td>{{p.ProviderName}}</td>
+                <td>{{p.ExpenseText }}</td>
+                <td>{{p.Amount | currency }}</td>
+                <td>{{p.CreationDate | date}}</td>
+            </tr>
+        </tbody>
+
+    </table>
 
     <div id="expensePaymentPanel" class="modal fade" role="dialog">
         <div class="modal-dialog" style="width:400px;">

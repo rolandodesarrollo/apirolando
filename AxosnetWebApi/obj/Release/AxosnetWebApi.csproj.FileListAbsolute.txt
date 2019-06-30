@@ -86,3 +86,11 @@ C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\TypeLite.pdb
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\TypeLite.Net4.pdb
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\RestSharp.dll
 C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\RestSharp.xml
+C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\WebApiRolando.dll
+C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\System.Web.Http.dll
+C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\System.Net.Http.Formatting.dll
+C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\System.Web.Http.WebHost.dll
+C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\WebApiRolando.pdb
+C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\System.Web.Http.xml
+C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\System.Net.Http.Formatting.xml
+C:\Users\ROLANDO\Desktop\Axosnet Test\apirolando\AxosnetWebApi\bin\System.Web.Http.WebHost.xml
