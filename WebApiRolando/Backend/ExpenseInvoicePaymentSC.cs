@@ -12,6 +12,20 @@ namespace WebApiRolando.Backend
     {
         public long AddExpenseInvoicePayment(decimal amount, long expenseID, string comment, string creationDate, decimal exchangeRate, string currencyCode)
         {
+            var expense = DataContext.ExpenseInvoices.FirstOrDefault(f => f.Id == expenseID);
+
+            if (expense == null)
+                return -1;
+
+            if (expense.Pending <= 0)
+                return -2;
+
+            if ((amount * exchangeRate) > expense.Pending)
+                return -3;
+
+            if (expense.Status == ExpenseInvoiceStatusCodes.ExpensePayed)
+                return -4;
+
             var expensePayment = new ExpensePayments()
             {
                 Amount = amount * exchangeRate,
