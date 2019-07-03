@@ -93,7 +93,7 @@ angularApp.controller('expensePaymentsListCtrl', function ($scope: ExpensePaymen
 
         if ($scope.paymentDate == undefined) {
 
-            $scope.responseMessage =  "La fecha del pago es obligatoria"
+            $scope.responseMessage = "La fecha del pago es obligatoria"
             return;
         }
         if (amountToPay <= 0) {
@@ -120,7 +120,28 @@ angularApp.controller('expensePaymentsListCtrl', function ($scope: ExpensePaymen
             }
         })
             .success(function (data: number, status, headers, config) {
-                $scope.responseMessage = "Se ha dado de alta el recibo #" + data;
+                if (data < 0) {
+                    switch (data) {
+                        case -1:
+                            $scope.responseMessage = "Ha ocurrido un error: No se encontró la factura";
+                            break;
+                        case -2:
+                            $scope.responseMessage = "Ha ocurrido un error: La factura ya fue saldada";
+                            break;
+                        case -3:
+                            $scope.responseMessage = "Ha ocurrido un error: El monto a pagar supera al pendiente";
+                            break;
+
+                        case -4:
+                            $scope.responseMessage = "Ha ocurrido un error: La factura ha sido marcada como pagada";
+                            break;
+                        default:
+                            $scope.responseMessage = "Ha ocurrido un error: La factura ha sido marcada como pagada";
+                            break;
+                    }
+                }
+                else
+                    $scope.responseMessage = "Se ha dado de alta el recibo #" + data;
                 $scope.search();
 
             });
